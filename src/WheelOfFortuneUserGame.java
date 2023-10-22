@@ -5,9 +5,8 @@ import java.util.*;
 
 public class WheelOfFortuneUserGame extends WheelOfFortune{
     public int left = 3;
-    boolean needNeedNewGame = true;
-    static boolean needStore = false;
-    boolean needNeedNewPhrase = true;
+    boolean needNewGamePlayer = true;
+    boolean needNewPhrase = true;
     GameRecord gameRecord = new GameRecord();
     GameRecord gameRecordNew = new GameRecord();
 
@@ -15,9 +14,9 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
     Random rand = new Random();
     @Override
     public boolean randomPhrase() {
-        if(needNeedNewPhrase == true){
+        if(needNewPhrase == true){
             left = 3;
-            needNeedNewPhrase = false;
+            needNewPhrase = false;
             // Get the phrase from a file of phrases
             try {
                 phraseList = Files.readAllLines(Paths.get("phrases.txt"));
@@ -41,15 +40,14 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
     }
     @Override
     public GameRecord play(){
-            if (needNeedNewGame == true) {
-                System.out.println("please enter your name");
-                Scanner scanner = new Scanner(System.in);
-                String s = scanner.nextLine();
-                needNeedNewGame = false;
-                gameRecord.id = s;
-                gameRecord.score = 0;
-            }
-
+        if(needNewGamePlayer == true){
+            needNewGamePlayer = false;
+            System.out.println("please enter your name");
+            Scanner scanner = new Scanner(System.in);
+            String s = scanner.nextLine();
+            gameRecord.id = s;
+            gameRecord.score = 0;
+        }
             int count = 0;
             boolean a = randomPhrase();
 //        if(!a){
@@ -61,10 +59,10 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
                 char[] ori = phrase.toCharArray();
                 if (Arrays.equals(ori, hiddenArray)) {
                     System.out.println("congratulations");
-                    gameRecord.score++;
+                    gameRecord.score = 10 - count;
                     break;
                 }
-                if (count == 5) {
+                if (count == 10) {
                     System.out.println("Sorry you lose");
                     break;
                 }
@@ -98,13 +96,11 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
             Scanner scanner = new Scanner(System.in);
             String s = scanner.nextLine();
             if (s.equals("yes")) {
-                needNeedNewGame = true;
-                needNeedNewPhrase = true;
-                needStore = true;
+                needNewGamePlayer = true;
+                needNewPhrase = true;
                 return true;
             }
             else {
-                needStore = true;
                 return false;
         }
     }
@@ -116,13 +112,11 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
             Scanner scanner1 = new Scanner(System.in);
             String s1 = scanner1.nextLine();
             if (s1.equals("yes")) {
-                needNeedNewGame = true;
-                needNeedNewPhrase = true;
-                needStore = true;
+                needNewGamePlayer = true;
+                needNewPhrase = true;
                 return true;
             }
             else {
-                needStore = true;
                 return false;
             }
         }
