@@ -9,7 +9,6 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
     boolean needNewPhrase = true;
     GameRecord gameRecord = new GameRecord();
     GameRecord gameRecordNew = new GameRecord();
-
     List<String> phraseList = null;
     Random rand = new Random();
     @Override

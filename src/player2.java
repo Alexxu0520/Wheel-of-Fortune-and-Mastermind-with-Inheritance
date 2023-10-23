@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class player2 {
+public class player2 implements WheelOfFortunePlayer{
         public static int robotCount = 0;
         public static Map<Integer,Character> map = new HashMap<>();
         //get the next guess from the player
@@ -21,9 +21,7 @@ public class player2 {
         }
         // — an id for the player
         public String playerId(){
-            Scanner scanner = new Scanner(System.in);
-            String s = scanner.nextLine();
-            return s;
+            return "p2";
         }
         //reset the player to start a new game
         public void reset(){

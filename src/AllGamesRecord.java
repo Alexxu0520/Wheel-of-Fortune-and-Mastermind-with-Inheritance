@@ -1,4 +1,6 @@
 import java.util.*;
+
+import static java.util.Collections.reverse;
 import static java.util.Collections.sort;
 
 public class AllGamesRecord {
@@ -11,8 +13,9 @@ public class AllGamesRecord {
     }
 
     List<GameRecord> recordList = new ArrayList<>();
+    int num = 0;
+    int playerSum = 0;
     int sum;
-    int playerSum;
     //adds a GameRecord to the AllGamesRecord
     public void add(GameRecord gr){
         recordList.add(gr);
@@ -26,7 +29,6 @@ public class AllGamesRecord {
     }
     //average(playerId) -- returns the average score for all games of a particular player
     public Integer average(String playerId){
-        int num = 0;
         for(GameRecord g : recordList){
             if(playerId == g.id){
                 playerSum += g.score;

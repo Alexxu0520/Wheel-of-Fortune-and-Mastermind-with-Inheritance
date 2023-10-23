@@ -17,10 +17,10 @@ public class GameRecord implements Comparable<GameRecord> {
     @Override
     public int compareTo(GameRecord o){
         if(this.score < o.score){
-            return -1;
+            return 1;
         }
         else if(this.score > o.score){
-            return 1;
+            return -1;
         }
         return 0;
     }

@@ -17,9 +17,7 @@ public class player1 implements WheelOfFortunePlayer{
     }
     // — an id for the player
     public String playerId(){
-        Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        return s;
+        return "p1";
     }
     //reset the player to start a new game
     public void reset(){
