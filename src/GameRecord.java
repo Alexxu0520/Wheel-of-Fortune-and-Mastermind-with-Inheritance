@@ -1,11 +1,11 @@
 import java.util.*;
+//GameRecord keeps track of the score (integer) and player id (String) for a single play of a game.
+// It must implement Comparable and provide a default implementation of compareTo which compares scores.
 public class GameRecord implements Comparable<GameRecord> {
+    protected Integer score;
+    protected String id;
 
-    //GameRecord keeps track of the score (integer) and player id (String) for a single play of a game.
-    // It must implement Comparable and provide a default implementation of compareTo which compares scores.
-    Integer score;
-    String id;
-
+    // cast game record to string
     @Override
     public String toString() {
         return "GameRecord{" +
@@ -13,7 +13,7 @@ public class GameRecord implements Comparable<GameRecord> {
                 ", id='" + id + '\'' +
                 '}';
     }
-
+   //define compareTo to work for sort
     @Override
     public int compareTo(GameRecord o){
         if(this.score < o.score){
@@ -23,5 +23,13 @@ public class GameRecord implements Comparable<GameRecord> {
             return -1;
         }
         return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameRecord that = (GameRecord) o;
+        return Objects.equals(score, that.score) && Objects.equals(id, that.id);
     }
 }

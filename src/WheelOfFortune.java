@@ -2,14 +2,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-
+// an abstract class which including common codes and data member of all WheelOfFortune game
 public abstract class WheelOfFortune extends Game{
-    public String phrase;//String phrase
-    public char[] hiddenArray;//para
-    public char[] newArray;//para
-    public char guess;
-    public Map<Integer,Character> map = new HashMap<>();
-    public boolean randomPhrase() {
+    protected String phrase;//String phrase
+    protected char[] hiddenArray;//para
+    protected char[] newArray;//para
+    protected char guess;
+    protected Map<Integer,Character> map = new HashMap<>();
+   // Get a random phrased
+    public void randomPhrase() {
         List<String> phraseList = null;
         // Get the phrase from a file of phrases
         try {
@@ -23,7 +24,6 @@ public abstract class WheelOfFortune extends Game{
         int r = rand.nextInt(3); // gets 0, 1, or 2
         phrase = phraseList.get(r).toLowerCase();
         //replaced with asterisks
-        return true;
     }
     // returns the initial hidden phrase
     public void generateHiddenPhrase() {
@@ -41,7 +41,9 @@ public abstract class WheelOfFortune extends Game{
         System.out.println(hiddenPhrase);
         hiddenArray = hiddenPhrase.toCharArray();
     }
+    // get the next guess
     public abstract char getGuess();
+    // process the guess, replace old Array with new Array
     public void processGuess() {
         char[] originalArray = phrase.toCharArray();
         newArray = Arrays.copyOf(hiddenArray, hiddenArray.length);
@@ -57,10 +59,12 @@ public abstract class WheelOfFortune extends Game{
         System.out.println(newArray);
         System.out.println(originalArray);
     }
+    // activate program and coordinate all method
     @Override
     public GameRecord play(){
         return null;
     }
+    // check if we need a new game
     @Override
     public boolean playNext(){
         return true;

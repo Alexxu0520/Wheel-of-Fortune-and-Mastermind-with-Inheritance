@@ -1,9 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import java.util.Scanner;
 
-public class player3 implements WheelOfFortunePlayer {
+// player using random to guess
+public class playerRandom implements WheelOfFortunePlayer {
     public int random;
     public static Map<Integer,Character> map = new HashMap<>();
     //get the next guess from the player
@@ -19,7 +19,7 @@ public class player3 implements WheelOfFortunePlayer {
     }
     // — an id for the player
     public String playerId(){
-        return "p3";
+        return "playerRandom";
     }
     //reset the player to start a new game
     public void reset(){

@@ -1,8 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class player1 implements WheelOfFortunePlayer{
+//player1 follow Alphabetical order
+public class playerAlphabetical implements WheelOfFortunePlayer{
     public static int robotCount = 0;
     public static Map<Integer,Character> map = new HashMap<>();
     //get the next guess from the player
@@ -17,7 +17,7 @@ public class player1 implements WheelOfFortunePlayer{
     }
     // — an id for the player
     public String playerId(){
-        return "p1";
+        return "playerAlphabetical";
     }
     //reset the player to start a new game
     public void reset(){

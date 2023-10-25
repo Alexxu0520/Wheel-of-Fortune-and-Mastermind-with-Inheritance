@@ -1,3 +1,4 @@
+// an interface of WheelOfFortunePlayer
 public interface WheelOfFortunePlayer {
 //get the next guess from the player
 abstract char nextGuess();

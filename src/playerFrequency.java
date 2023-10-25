@@ -1,8 +1,8 @@
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class player2 implements WheelOfFortunePlayer{
+// player using the frequency of letter in words.
+public class playerFrequency implements WheelOfFortunePlayer{
         public static int robotCount = 0;
         public static Map<Integer,Character> map = new HashMap<>();
         //get the next guess from the player
@@ -21,7 +21,7 @@ public class player2 implements WheelOfFortunePlayer{
         }
         // — an id for the player
         public String playerId(){
-            return "p2";
+            return "playerFrequency";
         }
         //reset the player to start a new game
         public void reset(){

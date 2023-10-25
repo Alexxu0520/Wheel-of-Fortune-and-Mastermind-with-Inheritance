@@ -63,4 +63,12 @@ public class AllGamesRecord {
         }
         return highPlayer;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AllGamesRecord that = (AllGamesRecord) o;
+        return num == that.num && playerSum == that.playerSum && sum == that.sum && Objects.equals(recordList, that.recordList);
+    }
 }

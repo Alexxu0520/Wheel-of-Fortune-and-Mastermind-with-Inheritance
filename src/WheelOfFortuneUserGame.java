@@ -2,17 +2,18 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-
+//an UserGame version of WheelOfFortune
 public class WheelOfFortuneUserGame extends WheelOfFortune{
-    public int left = 3;
-    boolean needNewGamePlayer = true;
-    boolean needNewPhrase = true;
-    GameRecord gameRecord = new GameRecord();
-    GameRecord gameRecordNew = new GameRecord();
-    List<String> phraseList = null;
-    Random rand = new Random();
+    private int left = 3;
+    private boolean needNewGamePlayer = true;
+    private boolean needNewPhrase = true;
+    private GameRecord gameRecord = new GameRecord();
+    private GameRecord gameRecordNew = new GameRecord();
+    private List<String> phraseList = null;
+    private Random rand = new Random();
+    // generate a randomPhrase to guess
     @Override
-    public boolean randomPhrase() {
+    public void randomPhrase() {
         if(needNewPhrase == true){
             left = 3;
             needNewPhrase = false;
@@ -32,12 +33,11 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
         }
         else{
             System.out.println("No more phrases");
-            return false;
         }
-        return true;
         //replaced with asterisks
     }
     @Override
+    // activate program and coordinate all method
     public GameRecord play(){
         if(needNewGamePlayer == true){
             needNewGamePlayer = false;
@@ -48,7 +48,7 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
             gameRecord.score = 0;
         }
             int count = 0;
-            boolean a = randomPhrase();
+            randomPhrase();
 //        if(!a){
 //            return gameRecord;
 //        }
@@ -88,6 +88,7 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
         }
 
     @Override
+    // check if we need a new game
     public boolean playNext() {
         if (left == 0) {
             System.out.println("No more phrases");
@@ -124,6 +125,7 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
         }
         return false;
     }
+    // get the next guess
     public char getGuess(){
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -139,6 +141,28 @@ public class WheelOfFortuneUserGame extends WheelOfFortune{
         }
         return guess;
     }
+    // cast to string
+    @Override
+    public String toString() {
+        return "WheelOfFortuneUserGame{" +
+                "left=" + left +
+                ", needNewGamePlayer=" + needNewGamePlayer +
+                ", needNewPhrase=" + needNewPhrase +
+                ", gameRecord=" + gameRecord +
+                ", gameRecordNew=" + gameRecordNew +
+                ", phraseList=" + phraseList +
+                ", rand=" + rand +
+                '}';
+    }
+    //  provide for sort
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WheelOfFortuneUserGame that = (WheelOfFortuneUserGame) o;
+        return left == that.left && needNewGamePlayer == that.needNewGamePlayer && needNewPhrase == that.needNewPhrase && Objects.equals(gameRecord, that.gameRecord) && Objects.equals(gameRecordNew, that.gameRecordNew) && Objects.equals(phraseList, that.phraseList) && Objects.equals(rand, that.rand);
+    }
+
     public static void main(String[] args)  {
         WheelOfFortuneUserGame wf = new WheelOfFortuneUserGame();
         AllGamesRecord record = wf.playAll();
