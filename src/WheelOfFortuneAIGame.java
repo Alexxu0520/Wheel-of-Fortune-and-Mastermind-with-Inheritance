@@ -24,7 +24,7 @@ public class WheelOfFortuneAIGame extends WheelOfFortune{
     public WheelOfFortuneAIGame(WheelOfFortunePlayer player){
         playArray.add(player);
     }
-    public WheelOfFortuneAIGame(ArrayList<WheelOfFortunePlayer> array){
+    public WheelOfFortuneAIGame(List<WheelOfFortunePlayer> array){
         playArray = array;
     }
     // generate a randomPhrase to guess
@@ -152,12 +152,11 @@ public class WheelOfFortuneAIGame extends WheelOfFortune{
         WheelOfFortunePlayer playerAlpha = new playerAlphabetical();
         WheelOfFortunePlayer playerFrequnce = new playerFrequency();
         WheelOfFortunePlayer playerRand = new playerRandom();
-        list.add(playerAlpha
-        );
+        list.add(playerAlpha);
         list.add(playerFrequnce);
         list.add(playerRand);
         // why we need cast list into (ArrayList<WheelOfFortunePlayer>) list?
-        WheelOfFortuneAIGame WheelOfFortuneAI = new WheelOfFortuneAIGame((ArrayList<WheelOfFortunePlayer>) list);
+        WheelOfFortuneAIGame WheelOfFortuneAI = new WheelOfFortuneAIGame(list);
         AllGamesRecord record = WheelOfFortuneAI.playAll();
         System.out.println(record);
         System.out.println("Total average is "+ record.average());
