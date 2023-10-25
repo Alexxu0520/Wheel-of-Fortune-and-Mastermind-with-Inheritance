@@ -12,7 +12,7 @@ public class WheelOfFortuneAIGame extends WheelOfFortune{
     List<String> phraseList = null;
     Random rand = new Random();
     player1 p1 = new player1();
-    static player2 p2 = new player2();
+    player2 p2 = new player2();
     player3 p3 = new player3();
     WheelOfFortunePlayer currentPlayer;
     int countPlayer = 0;

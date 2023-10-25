@@ -8,10 +8,6 @@ public abstract class Game {
             GameRecord gameRecord = play();
             allGameRecord.add(gameRecord);
             flag = playNext();
- /*           if(WheelOfFortuneUserGame.needStore == true){
-                WheelOfFortuneUserGame.needStore =false;
-                allGameRecordNew.add(allGameRecord.recordList.get(allGameRecord.recordList.size()-1));
-            }*/
         }
         return allGameRecord;
     }
