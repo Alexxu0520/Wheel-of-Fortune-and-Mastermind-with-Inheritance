@@ -12,10 +12,10 @@ public class AllGamesRecord {
         return "Congratulations";
     }
 
-    List<GameRecord> recordList = new ArrayList<>();
-    int num = 0;
-    int playerSum = 0;
-    int sum;
+    private List<GameRecord> recordList = new ArrayList<>();
+    private int num = 0;
+    private int playerSum = 0;
+    private int sum;
     //adds a GameRecord to the AllGamesRecord
     public void add(GameRecord gr){
         recordList.add(gr);
