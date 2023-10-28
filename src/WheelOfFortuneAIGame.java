@@ -80,7 +80,6 @@ public class WheelOfFortuneAIGame extends WheelOfFortune{
             }
             getGuess();
             System.out.println(guess);
-            System.out.println(playerAlphabetical.robotCount);
             if (set.contains(guess)) {
                 System.out.println("already used");
                 continue;
