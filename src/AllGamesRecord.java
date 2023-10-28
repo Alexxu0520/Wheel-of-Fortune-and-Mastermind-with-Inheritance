@@ -22,7 +22,7 @@ public class AllGamesRecord {
     }
     //returns the average score for all games added to the record
     public Integer average(){
-        num = 0;
+        sum = 0;
         for(GameRecord g : recordList){
             sum += g.score;
         }
